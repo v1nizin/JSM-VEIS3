@@ -49,8 +49,7 @@ const showForm = ref(false)
           <PlusBoxIcon />
           Cadastrar Móvel
         </button>
-      </div>
-      <Card />
+      </div>  
       <modal :visible="showForm" @close="showForm = false">
         <template #header>
           <h3>Cadastro </h3>

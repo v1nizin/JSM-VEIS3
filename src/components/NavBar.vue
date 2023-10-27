@@ -10,7 +10,7 @@
       </div>
       <div id="nav-content" tabindex="0">
         <ul class="nav-principal">
-          <RouterLink to="/TelaInicial"
+          <RouterLink to="/"
             ><li><a href="#0">Cadastrar Movéis</a></li>
           </RouterLink>
           <RouterLink to="/Produtos">
