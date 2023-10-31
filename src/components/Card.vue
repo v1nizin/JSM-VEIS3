@@ -29,7 +29,7 @@ onMounted(() => {
           <h2 class="card-title">{{ movel.nome || 'Título não disponível' }}</h2>
           <p>R${{ movel.preco || 'Título não disponível' }}</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Listen</button>
+            <button class="btn btn-primary">Visualizar</button>
           </div>
         </div>
       </div>

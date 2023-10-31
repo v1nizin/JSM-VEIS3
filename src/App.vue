@@ -7,7 +7,7 @@ import Nav from "./components/NavBar.vue";
 <template>
   <div class="flex-col" >
     <div>
-    <Nav />
+  <Nav></Nav>
   </div>
   <div>
     <main>
