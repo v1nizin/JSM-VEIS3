@@ -65,36 +65,22 @@ const showForm = ref(false)
               </div>
             </div>
             <div class="form-item">
-              <input type="text" placeholder="Móvel" id="title" v-model="currentMovel.title" />
+              <input type="text" placeholder="Nome" id="title" v-model="currentMovel.title" />
               <label for="title"></label>
             </div>
             <div class="form-item">
-              <input
-                type="text"
-                placeholder="Ano de lançamento"
-                id="year"
-                v-model="currentMovel.year"
-              />
-              <label for="year"></label>
+              <input type="number" placeholder="Quantidade"/>
             </div>
             <div class="form-item">
-              <select v-model="currentMovel.genre">
-                <option disabled value="">Selecione um gênero</option>
-                <option v-for="genre in genres" :key="genre.id" :value="genre.id">
-                  {{ genre.name }}
-                </option>
-              </select>
-              <label for="year">Gênero</label>
+              <input type="text" placeholder="Cor"/>
             </div>
             <div class="form-item">
-              <select v-model="currentMovel.rating">
-                <option disabled value="">Rating</option>
-                <option v-for="n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99.]" :key="n" :value="n">
-                  {{ n }}
-                </option>
-              </select>
-              <label for="year">Quantidade</label>
+              <input type="number" placeholder="Preço"/>
             </div>
+            <div class="form-item">
+              <input type="Text" placeholder="Fornecedor"/>
+            </div>
+
           </form>
         </template>
         <template #footer>
@@ -115,11 +101,13 @@ lang="css">
 
   height: 2rem;
   align-self: center;
-  margin-left: 75%;
+  margin-left: 75%; 
   background-color: #080;
   color: white;
   justify-content: space-around;
 }
+
+
 
 .footerButtons {
   display: flex;
