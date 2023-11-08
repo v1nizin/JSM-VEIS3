@@ -168,6 +168,7 @@ main small {
     /* position: absolute; */
     top: 0;
     display: flex;
+    z-index: 1000;
     left: 0;
     height: calc(100vh - 70px);
     background: #ececec;
@@ -217,6 +218,7 @@ main small {
 
 #nav-container:focus-within #nav-content {
   transform: none;
+  z-index: 1000;
 }
 
 * {

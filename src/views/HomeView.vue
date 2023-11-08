@@ -80,13 +80,16 @@ const showForm = ref(false)
             <div class="form-item">
               <input type="Text" placeholder="Fornecedor"/>
             </div>
+            <div class="form-item">
+              <input type="Text" placeholder="Categoria"/>
+            </div>
 
           </form>
         </template>
         <template #footer>
           <div class="footerButtons">
             <button @click="showForm = false">Cancelar</button>
-            <button class="saveButton" @click="save">Salvar</button>
+            <button class="saveButton">Adicionar</button>
           </div>
         </template>
       </modal>
@@ -96,16 +99,27 @@ const showForm = ref(false)
 
 <style scoped
 lang="css"> 
-.addButton,
 .saveButton {
+  background-color: rgb(230, 34, 77);
+  border-radius: 5px;
+  box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
+  padding:  4px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 130px;
+  height: 4.8vh;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+  margin-left: 28vh;
 
-  height: 2rem;
-  align-self: center;
-  margin-left: 75%; 
-  background-color: #080;
-  color: white;
-  justify-content: space-around;
+  
 }
+
+
 
 
 
