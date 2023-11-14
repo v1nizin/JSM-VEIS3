@@ -88,7 +88,7 @@ const showForm = ref(false)
         </template>
         <template #footer>
           <div class="footerButtons">
-            <button @click="showForm = false">Cancelar</button>
+            <button class="cancelbutton" @click="showForm = false">Cancelar</button>
             <button class="saveButton">Adicionar</button>
           </div>
         </template>
@@ -100,6 +100,25 @@ const showForm = ref(false)
 <style scoped
 lang="css"> 
 .saveButton {
+  background-color: rgb(50, 205, 50);
+  border-radius: 5px;
+  box-shadow: rgb(26, 110, 26) 0px 4px 0px 0px;
+  padding:  4px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 130px;
+  height: 4.8vh;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+  margin-left: 1.8vh;
+  
+}
+
+.cancelbutton {
   background-color: rgb(230, 34, 77);
   border-radius: 5px;
   box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
@@ -114,14 +133,8 @@ lang="css">
   transition: all .3s ease-in-out;
   z-index: 1;
   overflow: hidden;
-  margin-left: 28vh;
-
-  
+  margin-left: 11vh;
 }
-
-
-
-
 
 .footerButtons {
   display: flex;
@@ -131,6 +144,7 @@ lang="css">
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  align-items: center;
   row-gap: 0.5rem;
 }
 
@@ -148,6 +162,7 @@ lang="css">
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 }
 
 #preview img {

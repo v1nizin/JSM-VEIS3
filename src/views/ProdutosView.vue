@@ -9,18 +9,19 @@ import moveisService from '../services/moveis.js'
 </script>
 
 <template>
-
-    <div>
-      <h1>Produtos Cadastrados</h1>
-    </div>
+      <h1 class="h1"> Produtos Cadastrados</h1>
   
-    <Modal />
-    <Card />
-   
+        <Modal />
+        <Card />
 
-  </template>
+</template>
   
-  <style>
-
-  </style>
+<style>
+.h1 {
+  font-size: 3vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: -5vh;
+  text-align: center;
+}
+</style>
   

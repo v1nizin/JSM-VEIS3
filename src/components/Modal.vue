@@ -29,7 +29,7 @@ defineProps({
 
 <style lang="css">
 .modal-mask {
-  position: fixed;
+  position: absolute;
   z-index: 9998;
   top: 0;
   left: 0;
@@ -38,11 +38,12 @@ defineProps({
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   transition: opacity 0.3s ease;
+
 }
 
 .modal-container {
   width: 30%;
-  height: 95%;
+  height: 82%;
   margin: auto;
   padding: 20px 30px;
   background-color: #fff;
