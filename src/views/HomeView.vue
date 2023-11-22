@@ -38,6 +38,7 @@ async function save() {
 }
 
 const showForm = ref(false)
+
 </script>
 
 
@@ -133,7 +134,7 @@ lang="css">
   transition: all .3s ease-in-out;
   z-index: 1;
   overflow: hidden;
-  margin-left: 11vh;
+  margin-left: 8vh;
 }
 
 .footerButtons {

@@ -43,7 +43,7 @@ defineProps({
 
 .modal-container {
   width: 30%;
-  height: 82%;
+  height: 100%%;
   margin: auto;
   padding: 20px 30px;
   background-color: #fff;

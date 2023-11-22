@@ -6,7 +6,7 @@ const moveis = ref([]);
 
 const buscarMoveis = async () => { 
   try {
-    const resposta = await axios.get('https://backendprojetointegrador-kkn6-dev.fl0.io/api/moveis/');
+    const resposta = await axios.get('https://backendprojetointegrador-dev-thmj.4.us-1.fl0.io/api/moveis/');
     moveis.value = resposta.data; 
   } catch (erro) {
     console.error(erro);
@@ -42,9 +42,8 @@ onMounted(() => {
 <style>
 .card {
   margin-left: 1vh;
-
+  height: 27vh;
 }
-
 
 
 </style>
