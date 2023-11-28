@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ProdutosView from '../views/ProdutosView.vue'
 import VisualizarView from '../views/VisualizarView.vue'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,9 +20,10 @@ const router = createRouter({
     },
 
     {
-      path: '/Visualizar',
+      path: '/Visualizar/:id',
       name: 'Visualizar',
-      component: VisualizarView
+      component: VisualizarView,
+      props: true
     }
   ]
 })
