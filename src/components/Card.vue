@@ -30,7 +30,11 @@ onMounted(() => {
             <h2 class="card-title">{{ movel.nome || 'Título não disponível' }}</h2>
             <p>R${{ movel.preco || 'Título não disponível' }}</p>
             <div class="card-actions justify-end">
-              <button class="btn btn-primary">Visualizar</button>
+            <div class="router">
+              <RouterLink to="/Visualizar">
+                <button class="btn btn-primary">Visualizar</button>
+              </RouterLink>
+            </div>
             </div>
           </div>
         </div>
@@ -40,9 +44,14 @@ onMounted(() => {
 </template>
 
 <style>
+.router {
+
+}
+
 .card {
   margin-left: 1vh;
-  height: 27vh;
+  height: 25vh;
+  width: 180vh;
 }
 
 
