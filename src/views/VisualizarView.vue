@@ -24,11 +24,7 @@ export default {
 
 
 <template>
-  <div>
-    <h1>sdayu</h1>
-  </div>
   <div class="main">
-    {{ id }}
     <Dsec :movel="movel" />
   </div>
 </template>

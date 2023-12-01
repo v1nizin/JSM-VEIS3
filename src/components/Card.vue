@@ -60,4 +60,8 @@ onMounted(() => {
   height: 25vh;
   width: 180vh;
 }
+
+button {
+  margin-top: -5.8px;
+}
 </style>
