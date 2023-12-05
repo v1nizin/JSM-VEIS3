@@ -1,4 +1,3 @@
-// 
 <script>
 import MoveisApi from "../api/Movel";
 const moveisApi = new MoveisApi();
@@ -38,12 +37,9 @@ export default {
     <!-- Alterado para um nome mais específico -->
     <h1 class="h1_home">Cadastro de Móveis</h1>
 
-    <input
-      class="input_movel"
-      type="text"
-      v-model="movel.nome"
-      placeholder="Móvel"
-    />
+
+
+    <input class="input_movel"  type="text" v-model="movel.nome"  placeholder="Móvel"/>
 
     <input type="number" v-model="movel.quantidade" placeholder="Quantidade" />
 
@@ -51,9 +47,9 @@ export default {
 
     <input type="number" v-model="movel.preco" placeholder="Preço" />
 
-    <input type="number" v-model="movel.categoria" placeholder="Creço" />
+    <input type="number" v-model="movel.categoria" placeholder="Categoria" />
 
-    <input type="number" v-model="movel.fornecedor" placeholder="Freço" />
+    <input type="number" v-model="movel.fornecedor" placeholder="Fornecedor   " />
 
     <button @click="salvar" class="Cadastrar">Cadastrar</button>
   </div>
@@ -70,7 +66,7 @@ export default {
 input {
   height: 7vh;
   margin-bottom: 35px;
-  margin-left: 310px;
+  margin-left: 80vh;
   margin-top: 2px;
   border-radius: 30px;
   padding: 5px;
@@ -79,8 +75,8 @@ input {
 }
 
 .Cadastrar {
-  margin-top: 35px;
-  margin-left: 44.2vh;
+  margin-top: 5px;
+  margin-left: 85vh;
   border-radius: 30px;
   height: 50px;
   width: 150px;
@@ -149,10 +145,9 @@ input {
   background-color: #df7d0c;
   transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
-
 .h1_home {
-  margin-left: 327px;
+  margin-left: 75vh;
   margin-bottom: 40px;
-  font-size: 3vh;
+  font-size: 4vh;
 }
 </style>
