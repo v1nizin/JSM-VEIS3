@@ -35,8 +35,5 @@ export default {
 </script>
 
 <template>
-    <div>
-            <button class="cancelbutton" @click="showModal = false">Cancelar</button>
-            <button class="saveButton" @click="save">Adicionar</button>
-      </div>
+    
 </template>

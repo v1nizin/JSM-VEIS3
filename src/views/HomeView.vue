@@ -4,12 +4,12 @@ import { ref, onMounted } from "vue";
 
 import CadastroMovel from "../components/CadastroMovel.vue";
 import CardVisualizar from "../components/CardVisualizar.vue";
+import Teste from "../components/Teste.vue";
 
 </script>
 
 <template>
-    
-    <CardVisualizar/>
+    <Teste/>
 </template>
 
 <style scoped>

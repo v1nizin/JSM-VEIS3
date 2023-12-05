@@ -37,11 +37,7 @@ async function save() {
 
 const showForm = ref(false)
 
-
-
 </script>
-
-
 
 <template > 
   <div class="p-4 sm:ml-64">
@@ -96,6 +92,7 @@ const showForm = ref(false)
       </modal>
     </div>
   </div>
+
 </template>
 
 <style scoped

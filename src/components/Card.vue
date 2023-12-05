@@ -4,7 +4,7 @@ import { ref, onMounted } from "vue";
 
 const moveis = ref([]);
 
-const buscarMoveis = async () => {
+const buscarMovel = async () => {
   try {
     const resposta = await axios.get(
       "https://backendprojetointegrador-dev-thmj.4.us-1.fl0.io/api/moveis/"
@@ -15,8 +15,8 @@ const buscarMoveis = async () => {
   }
 };
 
-onMounted(() => {
-  buscarMoveis();
+onMounted(async () => {
+  await buscarMovel();
 });
 </script>
 
@@ -30,7 +30,7 @@ onMounted(() => {
       >
         <div class="card lg:card-side bg-base-100 shadow-xl">
           <figure class="w-56">
-            <img :src="movel.foto.url" alt="Capa do Livro" />
+            <img :src="movel.foto?.url" alt="Capa do Livro" />
           </figure>
           <div class="card-body">
             <h2 class="card-title">
