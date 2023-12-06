@@ -1,3 +1,8 @@
+<script>
+export default {}
+</script>
+
+
 <template>
   <div class="page">
     <header tabindex="0"><h1>JS Móveis</h1></header>
@@ -10,7 +15,7 @@
       </div>
       <div id="nav-content" tabindex="0">
         <ul class="nav-principal">
-          <RouterLink to="/"
+          <RouterLink to="/Telainicial"
             ><li><a href="#0">Cadastrar Movéis</a></li>
           </RouterLink>
           <RouterLink to="/Produtos">
@@ -18,7 +23,7 @@
           </RouterLink>
         </ul>
         <ul id="social-container">
-          <RouterLink to="/Login">
+          <RouterLink to="/">
             <li class="logout"><a href="#0">Logout</a></li>
           </RouterLink>
           
@@ -53,6 +58,7 @@ strong {
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #212121;
+  margin-right: 1000vh;
 }
 
 header {

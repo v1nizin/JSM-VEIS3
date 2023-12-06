@@ -1,13 +1,13 @@
 <script setup>
 import { RouterView } from "vue-router";
-import Nav from "./components/NavBar.vue";
+import Nav from "./components/Nav.vue";
 
 </script>
 
 <template>
   <div class="flex-col" >
     <div>
-  <Nav></Nav>
+
   </div>
   <div>
     <main>

@@ -4,6 +4,7 @@ import Dsec from "../components/Dsec.vue"
 
 
 
+
 export default {
   components: { Dsec },
   props: ["id"],

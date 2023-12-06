@@ -1,43 +1,103 @@
-<script>
+<script setup>
 import MoveisApi from "../api/Movel";
+import {ref, reactive, onMounted} from "vue"
+
 const moveisApi = new MoveisApi();
-export default {
-  data() {
-    return {
-      movel: {},
-      moveis: [],
-    };
-  },
-  async created() {
-    this.moveis = await moveisApi.buscaTodosOsMoveis(); // Corrigido para usar "buscaTodosOsMoveis"
-  },
-  methods: {
-    async salvar() {
-      if (this.movel.id) {
-        await moveisApi.atualizarMovel(this.movel);
-      } else {
-        await moveisApi.adicionarMovel(this.movel);
-      }
-      this.moveis = await moveisApi.buscaTodosOsMoveis();
-      this.movel = {};
-    },
-    async excluir(movel) {
-      await moveisApi.excluirMovel(movel.id);
-      this.moveis = await moveisApi.buscaTodosOsMoveis();
-    },
-    editar(movel) {
-      Object.assign(this.movel, movel);
-    },
-  },
-};
+let movel = {};
+let moveis = [];
+
+async function buscarMoveis() {
+  moveis = await moveisApi.buscaTodosOsMoveis();
+}
+
+async function salvar() {
+  if (movel.id) {
+    await moveisApi.atualizarMovel(movel);
+  } else {
+    await moveisApi.adicionarMovel(movel);
+  }
+  await buscarMoveis();
+  movel = {};
+}
+
+async function excluir(movel) {
+  await moveisApi.excluirMovel(movel.id);
+  await buscarMoveis();
+}
+
+function editar(movel) {
+  Object.assign(movel, movel);
+}
+
+buscarMoveis();
+
+
+import imageService from '@/services/images.js'
+import moveisService from '@/services/moveis.js'
+import genreService from '@/services/genres.js'
+
+const genres = ref([])
+const coverUrl = ref('')
+const file = ref(null)
+const currentMovel = reactive({
+  title: '',
+  year: '',
+  genre: '',
+  rating: 0
+})
+
+function onFileChange(e) {
+  file.value = e.target.files[0]
+  coverUrl.value = URL.createObjectURL(file.value)
+}
+
+async function save() {
+  const image = await imageService.uploadImage(file.value)
+  currentMovel.cover_attachment_key = image.attachment_key
+  await moveisService.saveMovel(currentMovel)
+  Object.assign(currentMovel, {
+    id: '',
+    title: '',
+    year: '',
+    genre: '',
+    rating: 0,
+    cover_attachment_key: ''
+  })
+  showForm.value = false
+}
+
+onMounted(async () => {
+  const data = await genreService.getAllGenres()
+  genres.value = data
+})
+
+const showForm = ref(false)
+
+
 </script>
 
 <template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="myComponentInputs">
     <!-- Alterado para um nome mais específico -->
     <h1 class="h1_home">Cadastro de Móveis</h1>
 
-
+    <input type="file"      @change="onFileChange" />
 
     <input class="input_movel"  type="text" v-model="movel.nome"  placeholder="Móvel"/>
 
@@ -59,14 +119,10 @@ export default {
 
 
 <style scoped>
-.Inputs {
-  margin-left: 42vh;
-}
-
 input {
   height: 7vh;
   margin-bottom: 35px;
-  margin-left: 80vh;
+  margin-left: 76.8vh;
   margin-top: 2px;
   border-radius: 30px;
   padding: 5px;
@@ -76,7 +132,7 @@ input {
 
 .Cadastrar {
   margin-top: 5px;
-  margin-left: 85vh;
+  margin-left: 83vh;
   border-radius: 30px;
   height: 50px;
   width: 150px;
