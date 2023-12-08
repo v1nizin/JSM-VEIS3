@@ -3,10 +3,12 @@ import { ref, reactive, onMounted } from "vue";
 import imageService from "@/services/images.js";
 import moveisService from "@/services/moveis.js";
 import categoriaService from "@/services/categorias.js";
+import fornecedorService from "@/services/fornecedor.js";
 
 const coverUrl = ref("");
 const file = ref(null);
 const categorias = ref([])
+const fornecedores = ref([])
 const currentMovel = reactive({
   nome: "",
   quantidade: 0,
@@ -26,6 +28,10 @@ function onFileChange(e) {
 onMounted(async () => {
   const data = await categoriaService.getAllCategorias()
   categorias.value = data
+});
+onMounted(async () => {
+  const data = await fornecedorService.getAllFornecedores()
+  fornecedores.value = data
 });
 
 async function save() {
@@ -79,11 +85,9 @@ async function save() {
       <option v-for="categoria in categorias" :key="categoria.id" v-bind:value="categoria.id">{{ categoria.descricao }}</option>
     </select>
 
-    <input
-      type="number"
-      v-model="currentMovel.fornecedor"
-      placeholder="Fornecedor   "
-    />
+    <select v-model="currentMovel.fornecedor">
+      <option v-for="fornecedor in fornecedores" :key="fornecedor.id" v-bind:value="fornecedor.id">{{ fornecedor.nome }}</option>
+    </select>
 
     <button @click="save" class="Cadastrar">Cadastrar</button>
   </div>
