@@ -1,4 +1,5 @@
 <script >
+import Nav from "../components/Nav.vue";
 import MoveisApi from "../api/Movel.js";
 const moveisapi = new MoveisApi();
 export default {
@@ -6,8 +7,8 @@ export default {
 };
 
 </script>
-
 <template>
+  <Nav></Nav>
   <div class="Visualizar">
     <div class="card lg:card-side bg-base-100 shadow-xl">
       <figure class="w-56">
@@ -22,6 +23,7 @@ export default {
         <p>Cor: {{ movel.cor }}</p>
         <p>Fornecedor: {{ movel.fornecedor }}</p>
         <p>Categoria: {{ movel.categoria }}</p>
+        <button class="btn btn-primary">Excluir</button>
       </div>
     </div>
   </div>
@@ -36,9 +38,11 @@ export default {
 
 .card {
   height: 30vh;
+  
 }
   
 h2 {
   margin-bottom: 5px;
 }
+
 </style>

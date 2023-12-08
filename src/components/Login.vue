@@ -25,7 +25,9 @@ export default { name:"Login" }
 </div>
 </template>
 
-<style>
+<style scoped>
+
+
 .login-box {
   position: absolute;
   top: 50%;

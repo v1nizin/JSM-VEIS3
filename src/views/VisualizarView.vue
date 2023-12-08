@@ -1,7 +1,7 @@
 <script>
 import axios from "axios";
 import Dsec from "../components/Dsec.vue"
-
+import Nav from "../components/Nav.vue"
 
 
 
@@ -26,6 +26,7 @@ export default {
 
 <template>
   <div class="main">
+    <Nav></Nav>
     <Dsec :movel="movel" />
   </div>
 </template>

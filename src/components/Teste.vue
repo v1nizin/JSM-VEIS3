@@ -1,37 +1,38 @@
-<script setup>
+<script>
 import MoveisApi from "../api/Movel";
-import {ref, reactive, onMounted} from "vue"
-
 const moveisApi = new MoveisApi();
-let movel = {};
-let moveis = [];
+export default {
+  data() {
+    return {
+      movel: {},
+      moveis: [],
+    };
+  },
+  async created() {
+    this.moveis = await moveisApi.buscaTodosOsMoveis(); // Corrigido para usar "buscaTodosOsMoveis"
+  },
+  methods: {
+    async salvar() {
+      if (this.movel.id) {
+        await moveisApi.atualizarMovel(this.movel);
+      } else {
+        await moveisApi.adicionarMovel(this.movel);
+      }
+      this.moveis = await moveisApi.buscaTodosOsMoveis();
+      this.movel = {};
+    },
+    async excluir(movel) {
+      await moveisApi.excluirMovel(movel.id);
+      this.moveis = await moveisApi.buscaTodosOsMoveis();
+    },
+    editar(movel) {
+      Object.assign(this.movel, movel);
+    },
+  },
+};
 
-async function buscarMoveis() {
-  moveis = await moveisApi.buscaTodosOsMoveis();
-}
 
-async function salvar() {
-  if (movel.id) {
-    await moveisApi.atualizarMovel(movel);
-  } else {
-    await moveisApi.adicionarMovel(movel);
-  }
-  await buscarMoveis();
-  movel = {};
-}
-
-async function excluir(movel) {
-  await moveisApi.excluirMovel(movel.id);
-  await buscarMoveis();
-}
-
-function editar(movel) {
-  Object.assign(movel, movel);
-}
-
-buscarMoveis();
-
-
+import { ref, reactive, onMounted } from 'vue'
 import imageService from '@/services/images.js'
 import moveisService from '@/services/moveis.js'
 import genreService from '@/services/genres.js'
@@ -45,6 +46,8 @@ const currentMovel = reactive({
   genre: '',
   rating: 0
 })
+
+const showForm = ref(false)
 
 function onFileChange(e) {
   file.value = e.target.files[0]
@@ -71,33 +74,18 @@ onMounted(async () => {
   genres.value = data
 })
 
-const showForm = ref(false)
-
 
 </script>
 
 <template>
 
+  <h1 class="h1_home">Cadastro de Móveis</h1>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="myComponentInputs">
+  <div class="InputsHome">
     <!-- Alterado para um nome mais específico -->
-    <h1 class="h1_home">Cadastro de Móveis</h1>
+    
 
-    <input type="file"      @change="onFileChange" />
+    <input class="arquivo" type="file"      @change="onFileChange" />
 
     <input class="input_movel"  type="text" v-model="movel.nome"  placeholder="Móvel"/>
 
@@ -119,9 +107,10 @@ const showForm = ref(false)
 
 
 <style scoped>
+
 input {
   height: 7vh;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   margin-left: 76.8vh;
   margin-top: 2px;
   border-radius: 30px;
