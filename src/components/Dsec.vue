@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .Visualizar {
   margin-top: 5px;
-  margin-left: 23%;
+  margin-left: 24%;
   position: sticky;
 }
 
