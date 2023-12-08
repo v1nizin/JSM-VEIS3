@@ -45,7 +45,7 @@ const showForm = ref(false)
       <div class="flex justify-start mb-4">
         <button class="btn btn-wide" @click="showForm = true">
           <PlusBoxIcon />
-          Cadastrar Móvel
+          Cadastra Móvel
         </button>
       </div>  
       <modal :visible="showForm" @close="showForm = false">

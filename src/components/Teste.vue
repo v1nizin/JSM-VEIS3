@@ -1,113 +1,95 @@
-<script>
-import MoveisApi from "../api/Movel";
-const moveisApi = new MoveisApi();
-export default {
-  data() {
-    return {
-      movel: {},
-      moveis: [],
-    };
-  },
-  async created() {
-    this.moveis = await moveisApi.buscaTodosOsMoveis(); // Corrigido para usar "buscaTodosOsMoveis"
-  },
-  methods: {
-    async salvar() {
-      if (this.movel.id) {
-        await moveisApi.atualizarMovel(this.movel);
-      } else {
-        await moveisApi.adicionarMovel(this.movel);
-      }
-      this.moveis = await moveisApi.buscaTodosOsMoveis();
-      this.movel = {};
-    },
-    async excluir(movel) {
-      await moveisApi.excluirMovel(movel.id);
-      this.moveis = await moveisApi.buscaTodosOsMoveis();
-    },
-    editar(movel) {
-      Object.assign(this.movel, movel);
-    },
-  },
-};
+<script setup>
+import { ref, reactive, onMounted } from "vue";
+import imageService from "@/services/images.js";
+import moveisService from "@/services/moveis.js";
+import categoriaService from "@/services/categorias.js";
 
-
-import { ref, reactive, onMounted } from 'vue'
-import imageService from '@/services/images.js'
-import moveisService from '@/services/moveis.js'
-import genreService from '@/services/genres.js'
-
-const genres = ref([])
-const coverUrl = ref('')
-const file = ref(null)
+const coverUrl = ref("");
+const file = ref(null);
+const categorias = ref([])
 const currentMovel = reactive({
-  title: '',
-  year: '',
-  genre: '',
-  rating: 0
-})
+  nome: "",
+  quantidade: 0,
+  cor: "",
+  preco: 0,
+  categoria: "",
+  fornecedor: "",
+});
 
-const showForm = ref(false)
+const showForm = ref(false);
 
 function onFileChange(e) {
-  file.value = e.target.files[0]
-  coverUrl.value = URL.createObjectURL(file.value)
-}
-
-async function save() {
-  const image = await imageService.uploadImage(file.value)
-  currentMovel.cover_attachment_key = image.attachment_key
-  await moveisService.saveMovel(currentMovel)
-  Object.assign(currentMovel, {
-    id: '',
-    title: '',
-    year: '',
-    genre: '',
-    rating: 0,
-    cover_attachment_key: ''
-  })
-  showForm.value = false
+  file.value = e.target.files[0];
+  coverUrl.value = URL.createObjectURL(file.value);
 }
 
 onMounted(async () => {
-  const data = await genreService.getAllGenres()
-  genres.value = data
-})
+  const data = await categoriaService.getAllCategorias()
+  categorias.value = data
+});
 
+async function save() {
+  const image = await imageService.uploadImage(file.value);
+  currentMovel.capa_attachment_key = image.attachment_key;
+  await moveisService.saveMovel(currentMovel);
+  Object.assign(currentMovel, {
+    nome: "",
+    quantidade: 0,
+    cor: "",
+    preco: 0,
+    categoria: "",
+    fornecedor: "",
+    capa_attachment_key: "",
+  });
+}
 
 </script>
 
 <template>
-
   <h1 class="h1_home">Cadastro de Móveis</h1>
 
   <div class="InputsHome">
     <!-- Alterado para um nome mais específico -->
-    
 
-    <input class="arquivo" type="file"      @change="onFileChange" />
+    <input
+      type="file"
+      accept="image/png, image/jpeg"
+      name="file_upload"
+      @change="onFileChange"
+    />
 
-    <input class="input_movel"  type="text" v-model="movel.nome"  placeholder="Móvel"/>
+    <input
+      class="input_movel"
+      type="text"
+      v-model="currentMovel.nome"
+      placeholder="Móvel"
+    />
 
-    <input type="number" v-model="movel.quantidade" placeholder="Quantidade" />
+    <input
+      type="number"
+      v-model="currentMovel.quantidade"
+      placeholder="Quantidade"
+    />
 
-    <input type="text" v-model="movel.cor" placeholder="Cor" />
+    <input type="text" v-model="currentMovel.cor" placeholder="Cor" />
 
-    <input type="number" v-model="movel.preco" placeholder="Preço" />
+    <input type="number" v-model="currentMovel.preco" placeholder="Preço" />
 
-    <input type="number" v-model="movel.categoria" placeholder="Categoria" />
+    <select v-model="currentMovel.categoria">
+      <option v-for="categoria in categorias" :key="categoria.id" v-bind:value="categoria.id">{{ categoria.descricao }}</option>
+    </select>
 
-    <input type="number" v-model="movel.fornecedor" placeholder="Fornecedor   " />
+    <input
+      type="number"
+      v-model="currentMovel.fornecedor"
+      placeholder="Fornecedor   "
+    />
 
-    <button @click="salvar" class="Cadastrar">Cadastrar</button>
+    <button @click="save" class="Cadastrar">Cadastrar</button>
   </div>
 </template>
 
-
-
-
 <style scoped>
-
 input {
   height: 7vh;
   margin-bottom: 15px;

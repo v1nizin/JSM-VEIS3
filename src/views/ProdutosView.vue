@@ -1,7 +1,5 @@
 <script setup>
 import { ref, reactive, } from 'vue'
-import PlusBoxIcon from 'vue-material-design-icons/PlusBox.vue'
-import NavBar from '../components/Nav.vue'
 import Card from '../components/Card.vue'
 import Modal from '../components/Modal.vue'
 import imageService from '../services/images.js'

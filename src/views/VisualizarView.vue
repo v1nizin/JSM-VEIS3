@@ -1,12 +1,10 @@
 <script>
 import axios from "axios";
-import Dsec from "../components/Dsec.vue"
-import Nav from "../components/Nav.vue"
-
-
+import Dsec from "../components/Dsec.vue";
+import Nav from '../components/Nav.vue';
 
 export default {
-  components: { Dsec },
+  components: { Dsec,Nav   },
   props: ["id"],
   data() {
     return {

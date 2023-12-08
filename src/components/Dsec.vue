@@ -1,12 +1,38 @@
-<script >
-import Nav from "../components/Nav.vue";
+<script>
 import MoveisApi from "../api/Movel.js";
-const moveisapi = new MoveisApi();
+const moveisApi = new MoveisApi(); // Corrigido para "moveisApi"
 export default {
+  data() {
+    return {
+      movel: {},
+      moveis: [],
+    };
+  },
+  async created() {
+    this.moveis = await moveisApi.buscaTodosOsMoveis(); // Corrigido para usar "moveisApi"
+  },
+  methods: {
+    async salvar() {
+      if (this.movel.id) {
+        await moveisApi.atualizarMovel(this.movel);
+      } else {
+        await moveisApi.adicionarMovel(this.movel);
+      }
+      this.moveis = await moveisApi.buscaTodosOsMoveis();
+      this.movel = {};
+    },
+    async excluir(movel) {
+      await moveisApi.excluirMovel(movel.id);
+      this.moveis = await moveisApi.buscaTodosOsMoveis();
+    },
+    editar(movel) {
+      Object.assign(this.movel, movel);
+    },
+  },
   props: ["movel"],
 };
-
 </script>
+
 <template>
   <Nav></Nav>
   <div class="Visualizar">
@@ -23,7 +49,7 @@ export default {
         <p>Cor: {{ movel.cor }}</p>
         <p>Fornecedor: {{ movel.fornecedor }}</p>
         <p>Categoria: {{ movel.categoria }}</p>
-        <button class="btn btn-primary">Excluir</button>
+        <button @click="() => excluir(movel)" class="btn btn-primary">Excluir</button>
       </div>
     </div>
   </div>
