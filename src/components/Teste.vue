@@ -94,7 +94,8 @@ async function save() {
 </template>
 
 <style scoped>
-input {
+
+input , select{
   height: 7vh;
   margin-bottom: 15px;
   margin-left: 76.8vh;
@@ -106,7 +107,7 @@ input {
 }
 
 .Cadastrar {
-  margin-top: 5px;
+  margin-top: 10px;
   margin-left: 83vh;
   border-radius: 30px;
   height: 50px;
