@@ -21,6 +21,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <h1 class="h12"> Produtos Cadastrados</h1>
   <div class="card">
     <div class="grid grid-cols-3 gap-4 mb-4 mt-5">
       <div
@@ -52,7 +53,11 @@ onMounted(async () => {
 </template>
 
 <style>
-.router {
+
+.h12 {
+
+  font-size: 35px;
+  text-align: center;
 }
 
 .card {
@@ -64,4 +69,5 @@ onMounted(async () => {
 button {
   margin-top: -5.8px;
 }
+
 </style>

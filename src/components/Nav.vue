@@ -53,7 +53,7 @@ strong {
 }
 
 .page {
-  height: 15vh; 
+  height: 15dvh; 
   font-family: 'Encode Sans Condensed', sans-serif;
   font-weight: 600;
   letter-spacing: 0.03em;

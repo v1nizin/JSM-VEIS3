@@ -34,9 +34,9 @@ export default {
 </script>
 
 <template>
-  <Nav></Nav>
   <div class="Visualizar">
-    <div class="card lg:card-side bg-base-100 shadow-xl">
+    <Nav></Nav>
+    <div class="card lg:card-side bg-base-100 shadow-2xl mb-4">
       <figure class="w-56">
         <img :src="movel.foto.url" alt="Capa do Livro" />
       </figure>
@@ -49,26 +49,43 @@ export default {
         <p>Cor: {{ movel.cor }}</p>
         <p>Fornecedor: {{ movel.fornecedor }}</p>
         <p>Categoria: {{ movel.categoria }}</p>
-        <button @click="() => excluir(movel)" class="btn btn-primary">Excluir</button>
+        <div class="button-container">
+          <button @click="() => excluir(movel)" class="btn btn-primary">Excluir</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style setup>
+<style scoped>
 .Visualizar {
   margin-top: 5px;
-  z-index: -110;
+  margin-left: 23%;
   position: sticky;
 }
 
 .card {
-  height: 30vh;
-  
+  height: auto;
+  width: 100vh;
 }
-  
+
+.shadow-2xl {
+  --shadow: 0 20px 30px -6px rgba(0, 0, 0, 0.3), 0 12px 12px -6px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button-container {
+  margin-top: 10px; /* Ajuste a margem conforme necessário */
+  align-self: flex-start; /* Alinhe o botão à esquerda */
+}
+
 h2 {
   margin-bottom: 5px;
 }
-
 </style>
