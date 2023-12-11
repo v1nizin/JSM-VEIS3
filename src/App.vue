@@ -7,7 +7,7 @@ import Nav from "./components/Nav.vue";
 <template>
 
   <div class="flex-col">
-        <Nav></Nav>
+    <Nav></Nav>
         <RouterView />
 
   </div>

@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+
 import Desc from "../components/Desc.vue";
 
 
@@ -23,7 +24,11 @@ export default {
 
 
 <template>
+
+
+
   <div class="main">
+    
    
     <Desc :movel="movel" />
   </div>

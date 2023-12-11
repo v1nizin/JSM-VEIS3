@@ -62,6 +62,7 @@ export default {
   margin-top: 5px;
   margin-left: 24%;
   position: sticky;
+
 }
 
 .card {

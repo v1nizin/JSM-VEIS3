@@ -16,7 +16,7 @@ export default {}
       </div>
       <div id="nav-content" tabindex="0">
         <ul class="nav-principal">
-          <RouterLink to="/Telainicial"
+          <RouterLink to="/"
             ><li><a href="#0">Cadastrar Movéis</a></li>
           </RouterLink>
           <RouterLink to="/Produtos">
@@ -33,23 +33,40 @@ export default {}
 
 * {
   outline: none;
+  z-index: 100;
+}
+
+#nav-container .bg {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 70px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 99; /* Ajuste conforme necessário, um valor menor que o z-index da .page */
 }
 
 #social-container {
   display: flex;
   flex-direction: row;
+  
 }
 strong {
   font-weight: 600;
+
 }
 
 .page {
-  height: 15dvh; 
+  height: 15vh;
   font-family: 'Encode Sans Condensed', sans-serif;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #212121;
   margin-right: 1000vh;
+  position: relative;
+  z-index: 100;
 }
 
 header {
@@ -62,6 +79,7 @@ header {
   justify-content: center;
   align-items: center;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ 
 }
 
 main {
@@ -69,26 +87,31 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
+
 }
 
 main > div {
   margin: auto;
   max-width: 600px;
+
 }
 
 main h2 span {
   color: #bf7497;
+
 }
 
 main p {
   line-height: 1.5;
   font-weight: 200;
   margin: 20px 0;
+
 }
 
 main small {
   font-weight: 300;
   color: #888;
+  
 }
 
 #nav-container {
@@ -96,6 +119,7 @@ main small {
   height: 100vh;
   width: 100%;
   pointer-events: none;
+
 }
 #nav-container .bg {
   position: absolute;
@@ -106,14 +130,17 @@ main small {
   visibility: hidden;
   opacity: 0;
   transition: 0.3s;
-  background: #000;
+
+
 }
 #nav-container:focus-within .bg {
   visibility: visible;
   opacity: 0.6;
+ 
 }
 #nav-container * {
   visibility: visible;
+
 }
 
 .button {
@@ -132,6 +159,7 @@ main small {
   margin-left: 25px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  
 }
 .icon-bar {
   display: block;
@@ -139,13 +167,16 @@ main small {
   height: 3px;
   background: #ffffff;
   transition: 0.3s;
+  
 }
 .icon-bar + .icon-bar {
   margin-top: 5px;
+  
 }
 
 #nav-container:focus-within .button {
   pointer-events: none;
+  
 }
 #nav-container:focus-within .icon-bar:nth-of-type(1) {
   transform: translate3d(0, 8px, 0) rotate(45deg);
@@ -182,6 +213,7 @@ main small {
   height: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 
 #nav-content li a {
@@ -189,28 +221,34 @@ main small {
   display: block;
   text-transform: uppercase;
   transition: color 0.1s;
+  
 }
 
 #nav-content li a:hover {
   color: #bf7497;
+  
 }
 
 #nav-content li:not(.small) + .small {
   margin-top: auto;
+  z-index: 100;
 }
 
 .small {
   display: flex;
   align-self: center;
+  z-index: 100;
 }
 
 .small a {
   font-size: 12px;
   font-weight: 400;
   color: #888;
+  z-index: 100;
 }
 .small a + a {
   margin-left: 15px;
+  z-index: 100;
 }
 
 #nav-container:focus-within #nav-content {
