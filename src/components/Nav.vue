@@ -4,6 +4,7 @@ export default {}
 
 
 <template>
+
   <div class="page">
     <header tabindex="0"><h1>JS Móveis</h1></header>
     <div id="nav-container">
@@ -21,16 +22,6 @@ export default {}
           <RouterLink to="/Produtos">
             <li><a href="#0">Produtos Cadastrados</a></li>
           </RouterLink>
-        </ul>
-        <ul id="social-container">
-          <RouterLink to="/">
-            <li class="logout"><a href="#0">Logout</a></li>
-          </RouterLink>
-          
-<!--           <li class="small"><a href="#0">Instagram</a></li>
-          <li class="small">
-            <a href="#0">Facebook</a>
-          </li> -->
         </ul>
       </div>
     </div>

@@ -1,10 +1,10 @@
 <script>
 import axios from "axios";
-import Dsec from "../components/Dsec.vue";
-import Nav from '../components/Nav.vue';
+import Desc from "../components/Desc.vue";
+
 
 export default {
-  components: { Dsec,Nav   },
+  components: { Desc  },
   props: ["id"],
   data() {
     return {
@@ -24,7 +24,7 @@ export default {
 
 <template>
   <div class="main">
-    <Nav></Nav>
-    <Dsec :movel="movel" />
+   
+    <Desc :movel="movel" />
   </div>
 </template>

@@ -2,12 +2,10 @@
 import { ref, reactive, } from 'vue'
 import Card from '../components/Card.vue'
 
-import Nav from "../components/Nav.vue";
+
 </script>
 
 <template>
-        <Nav></Nav>
-    
         <Card />
 </template>
   
@@ -18,5 +16,6 @@ import Nav from "../components/Nav.vue";
   margin-top: -5vh;
   text-align: center;
 }
+
 </style>
   
